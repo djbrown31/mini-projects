@@ -256,7 +256,7 @@ function computeWinner() {
         if (YOU['score'] > DEALER['score'] || (DEALER['score'] > 21)) {
             console.log('You won!');
             winner = YOU;
-        } else if (YOU['score'] < DEALER['score']{
+        } else if (YOU['score'] < DEALER['score']) {
             console.log('You Lost!');
             winner = DEALER;
         } else if (YOU['score'] === DEALER['score']) {
