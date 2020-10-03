@@ -178,9 +178,9 @@ document.querySelector('#blackjack-stand-button').addEventListener('click', deal
 
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
-const hitSound = new Audio('/Users/cleverprogrammer/github/javascript_crash_course/static/sounds/swish.m4a');
-const winSound = new Audio('/Users/cleverprogrammer/github/javascript_crash_course/static/sounds/cash.mp3');
-const lossSound = new Audio('/Users/cleverprogrammer/github/javascript_crash_course/static/sounds/aww.mp3');
+const hitSound = new Audio('/Users/danielbrown/Downloads/sounds/swish.m4a');
+const winSound = new Audio('/Users/danielbrown/Downloads/sounds/cash.mp3');
+const lossSound = new Audio('/Users/danielbrown/Downloads/sounds/aww.mp3');
 
 function blackjackHit() {
     if (blackjackGame['isStand'] === false) {
@@ -254,7 +254,7 @@ function hit() {
 function showCard(card, playerBoxId) {
     if (Number(document.querySelector(playerBoxId + ' span').textContent) <= 21) {
         let cardImage = document.createElement('IMG');
-        cardImage.src = '/Users/cleverprogrammer/github/javascript_crash_course/static/images/' + card + '.png';
+        cardImage.src = '/Users/danielbrown/Downloads/images' + card + '.png';
         document.querySelector(playerBoxId).appendChild(cardImage);
         hitSound.play();
     }
