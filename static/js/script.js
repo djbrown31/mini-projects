@@ -202,42 +202,43 @@ function blackjackHit() {
     //     }
 }
 
+function randomCard() {
+    let randomIndex = Math.floor(Math.random() * 13);
+    return blackjackGame['cards'][randomIndex];
+}
+
 function showCard(activePlayer) {
     let cardImage = document.createElement('img');
     cardImage.src = 'static/images/Q.png';
     document.querySelector(activePlayer['div']).appendChild(cardImage);
     hitSound.play();
+}
 
-    function blackjackDeal() {
+function blackjackDeal() {
 
-        let yourImages = document.querySelector('#your-box').querySelectorAll('img');
-        let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
+    let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+    let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
 
-        for (i = 0; i < yourImages.length; i++) {
-            yourImages[i].remove();
-        }
-
-        for (i = 0; i < dealerImages.length; i++) {
-            dealerImages[i].remove();
-        }
-
-        function blackjackHit() {
-
-            //     if (blackjackGame['isStand'] === false) {
-            //         let randomCard = hit();
-            //         updateScore('yourScore', randomCard);
-            //         console.log(blackjackGame['yourScore']);
-            //         showCard(randomCard, '#your-box');
-            //         showYourScore(blackjackGame['yourScore']);
-            //     }
-        }
-
-        function randomCard() {
-            let randomIndex = Math.floor(Math.random() * 13);
-            let randomCard = blackjackGame['cards'][randomIndex];
-        }
-
+    for (i = 0; i < yourImages.length; i++) {
+        yourImages[i].remove();
     }
+
+    for (i = 0; i < dealerImages.length; i++) {
+        dealerImages[i].remove();
+    }
+
+    //     function blackjackHit() {
+
+    //         //     if (blackjackGame['isStand'] === false) {
+    //         //         let randomCard = hit();
+    //         //         updateScore('yourScore', randomCard);
+    //         //         console.log(blackjackGame['yourScore']);
+    //         //         showCard(randomCard, '#your-box');
+    //         //         showYourScore(blackjackGame['yourScore']);
+    //         //     }
+    //     }
+
+    // }
 
     //     if (blackjackGame['turnsOver'] === true) {
 
