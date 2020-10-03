@@ -225,6 +225,12 @@ function blackjackDeal() {
 
     document.querySelector('#your-blackjack-result').textContent = 0;
     document.querySelector('#dealer-blackjack-result').textContent = 0;
+
+    document.querySelector('#your-blackjack-result').style.color = '#ffffff';
+    document.querySelector('#dealer-blackjack-result').style.color = '#ffffff';
+
+    document.querySelector('#your-blackjack-result').textContent = "Let's Play!";
+    document.querySelector('#dealer-blackjack-result').style.color = 'black';
 }
 
 function updateScore(card, activePlayer) {
@@ -288,14 +294,17 @@ function showResult() {
     let message, messageColor;
 
     if (winner === YOU) {
+        document.querySelector('#wins').textContent = blackjackGame['wins'];
         message = 'You won!';
         messageColor = 'green';
         winSound.play();
     } else if (winner === DEALER) {
+        document.querySelector('#losses').textContent = blackjackGame['losses'];
         message = 'You Lost!';
         messageColor = 'red';
         lossSound.play();
     } else {
+        document.querySelector('#draws').textContent = blackjackGame['draws'];
         message = 'PUSH!';
         messageColor = 'black';
     }
