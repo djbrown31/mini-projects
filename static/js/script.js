@@ -192,6 +192,7 @@ document.querySelector('#blackjack-deal-button').addEventListener('click', black
 function blackjackHit() {
     let card = randomCard;
     console.log(card);
+    showYourScore(YOU);
     showCard(card, YOU);
 
     //     if (blackjackGame['isStand'] === false) {
@@ -291,23 +292,14 @@ function updateScore(playerScore, card) {
     }
 }
 
-// let blackjackGame = {
-//     'yourScore': 0,
-//     'dealerScore': 0,
-//     'isStand': false,
-//     'turnsOver': false,
-//     'wins': 0,
-//     'losses': 0,
-//     'draws': 0,
-//     'cardsMap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'K': 10, 'Q': 10, 'J': 10, 'A': [1, 11] },
-//     'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A']
-// };
-
-// document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
-
-// document.querySelector('#blackjack-stand-button').addEventListener('click', dealerLogic);
-
-// document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
+function showYourScore(score) {
+    if (blackjackGame['yourScore'] > 21) {
+        document.querySelector('#your-blackjack-score').textContent = "BUST!";
+        document.querySelector('#your-blackjack-score').style.color = 'red';
+    } else {
+        document.querySelector('#your-blackjack-score').textContent = score;
+    }
+}
 
 // const hitSound = new Audio('/Users/danielbrown/Downloads/sounds/swish.m4a');
 // const winSound = new Audio('/Users/danielbrown/Downloads/sounds/cash.mp3');
@@ -403,14 +395,7 @@ function updateScore(playerScore, card) {
 //     }
 // }
 
-// function showYourScore(score) {
-//     if (blackjackGame['yourScore'] > 21) {
-//         document.querySelector('#your-blackjack-score').textContent = "BUST!";
-//         document.querySelector('#your-blackjack-score').style.color = 'red';
-//     } else {
-//         document.querySelector('#your-blackjack-score').textContent = score;
-//     }
-// }
+
 
 // function showDealerScore(score) {
 //     if (blackjackGame['dealerScore'] > 21) {
