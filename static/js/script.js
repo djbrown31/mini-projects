@@ -229,8 +229,8 @@ function blackjackDeal() {
     document.querySelector('#your-blackjack-result').style.color = '#ffffff';
     document.querySelector('#dealer-blackjack-result').style.color = '#ffffff';
 
-    document.querySelector('#your-blackjack-result').textContent = "Let's Play!";
-    document.querySelector('#dealer-blackjack-result').style.color = 'black';
+    document.querySelector('#blackjack-result').textContent = "Let's Play!";
+    document.querySelector('#blackjack-result').style.color = 'black';
 }
 
 function updateScore(card, activePlayer) {
