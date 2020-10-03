@@ -169,7 +169,7 @@ let blackjackGame = {
 const YOU = blackjackGame['you'];
 const DEALER = blackjackGame['dealer'];
 
-const hitSound = new Audio('static/sounds/swish.m4a')
+const hitSound = new Audio('static/sounds/swish.m4a');
 
 document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
 
@@ -177,16 +177,16 @@ document.querySelector('#blackjack-stand-button').addEventListener('click', deal
 
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
-function blackjackHit() {
-    showCard(YOU);
-    // if (blackjackGame['isStand'] === false) {
-    //     let randomCard = hit();
-    //     updateScore('yourScore', randomCard);
-    //     console.log(blackjackGame['yourScore']);
-    //     showCard(randomCard, '#your-box');
-    //     showYourScore(blackjackGame['yourScore']);
-    // }
-}
+// function blackjackHit() {
+//     showCard(YOU);
+//     // if (blackjackGame['isStand'] === false) {
+//     //     let randomCard = hit();
+//     //     updateScore('yourScore', randomCard);
+//     //     console.log(blackjackGame['yourScore']);
+//     //     showCard(randomCard, '#your-box');
+//     //     showYourScore(blackjackGame['yourScore']);
+//     // }
+// }
 
 function blackjackHit() {
     let card = randomCard;
