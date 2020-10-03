@@ -165,6 +165,9 @@ let blackjackGame = {
     'dealer': { 'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0 },
     'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A'],
     'cardsMap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'K': 10, 'Q': 10, 'J': 10, 'A': [1, 11] },
+    'wins': 0,
+    'losses': 0,
+    'draws': 0
 }
 
 const YOU = blackjackGame['you'];
@@ -250,6 +253,11 @@ function dealerLogic() {
     showCard(card, DEALER);
     updateScore(card, DEALER);
     showScore(DEALER);
+
+    if (DEALER['score'] > 15) {
+        let winner = computeWinner();
+        showResult(winner);
+    }
 }
 
 function computeWinner() {
@@ -257,19 +265,19 @@ function computeWinner() {
 
     if (YOU['score'] <= 21) {
         if (YOU['score'] > DEALER['score'] || (DEALER['score'] > 21)) {
-            console.log('You won!');
+            blackjackGame['wins']++;
             winner = YOU;
         } else if (YOU['score'] < DEALER['score']) {
-            console.log('You Lost!');
+            blackjackGame['losses']++;
             winner = DEALER;
         } else if (YOU['score'] === DEALER['score']) {
-            console.log('PUSH!')
+            blackjackGame['draws']++;
         }
     } else if (YOU['score'] > 21 && DEALER['score'] <= 21) {
-        console.log('You lost!');
+        blackjackGame['losses']++;
         winner = DEALER;
     } else if (YOU['score'] > 21 && DEALER['score'] > 21) {
-        console.log('PUSH!');
+        blackjackGame['draws']++;
         winner = DEALER;
     }
     console.log('Winner is', winner);
