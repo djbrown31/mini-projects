@@ -169,7 +169,7 @@ let blackjackGame = {
 const YOU = blackjackGame['you'];
 const DEALER = blackjackGame['dealer'];
 
-const hitSound = newAudio('mini_projects/sounds/swish.m4a')
+const hitSound = newAudio('mini_projects/static/sounds/swish.m4a')
 
 document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
 
@@ -204,7 +204,7 @@ function blackjackHit() {
 
 function showCard(activePlayer) {
     let cardImage = document.createElement('img');
-    cardImage.src = 'mini_projects/images/Q.png';
+    cardImage.src = 'mini_projects/static/images/Q.png';
     document.querySelector(activePlayer['div']).appendChild(cardImage);
     hitSound.play();
 
