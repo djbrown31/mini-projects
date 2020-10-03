@@ -191,7 +191,7 @@ document.querySelector('#blackjack-deal-button').addEventListener('click', black
 function blackjackHit() {
     let card = randomCard;
     console.log(card);
-    showCard(YOU);
+    showCard(card, YOU);
 
     //     if (blackjackGame['isStand'] === false) {
     //         let randomCard = hit();
