@@ -258,7 +258,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function dealerLogic() {
+async function dealerLogic() {
     blackjackGame['isStand'] = true;
 
     while (DEALER['score'] < 16 && blackjackGame['isStand'] === true) {
