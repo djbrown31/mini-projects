@@ -163,7 +163,8 @@ function randomColors() {
 let blackjackGame = {
     'you': { 'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0 },
     'dealer': { 'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0 },
-    'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A']
+    'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A'],
+    'cardsMap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'K': 10, 'Q': 10, 'J': 10, 'A': [1, 11] },
 }
 
 const YOU = blackjackGame['you'];
@@ -276,6 +277,18 @@ function blackjackDeal() {
     //     document.querySelector(playerBoxId).appendChild(cardImage);
     //     hitSound.play();
     // }
+}
+
+function updateScore(playerScore, card) {
+    if (card === 'A') {
+        if (blackjackGame[playerScore] + blackjackGame['cardsMap'][card][1] <= 21) {
+            blackjackGame[playerScore] += blackjackGame['cardsMap'][card][1];
+        } else {
+            blackjackGame[playerScore] += blackjackGame['cardsMap'][card][0];
+        }
+    } else {
+        blackjackGame[playerScore] += blackjackGame['cardsMap'][card];
+    }
 }
 
 // let blackjackGame = {
