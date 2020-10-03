@@ -280,7 +280,7 @@ function computeWinner() {
         blackjackGame['draws']++;
         winner = DEALER;
     }
-    console.log('Winner is', winner);
+    console.log(blackjackGame);
     return winner;
 }
 
