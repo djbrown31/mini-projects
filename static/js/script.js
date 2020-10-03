@@ -188,6 +188,20 @@ function blackjackHit() {
     // }
 }
 
+function blackjackHit() {
+    let card = randomCard;
+    console.log(card);
+    showCard(YOU);
+
+    //     if (blackjackGame['isStand'] === false) {
+    //         let randomCard = hit();
+    //         updateScore('yourScore', randomCard);
+    //         console.log(blackjackGame['yourScore']);
+    //         showCard(randomCard, '#your-box');
+    //         showYourScore(blackjackGame['yourScore']);
+    //     }
+}
+
 function showCard(activePlayer) {
     let cardImage = document.createElement('img');
     cardImage.src = 'mini_projects/images/Q.png';
@@ -207,43 +221,61 @@ function showCard(activePlayer) {
             dealerImages[i].remove();
         }
 
-        //     if (blackjackGame['turnsOver'] === true) {
+        function blackjackHit() {
 
-        //         blackjackGame['isStand'] = false;
+            //     if (blackjackGame['isStand'] === false) {
+            //         let randomCard = hit();
+            //         updateScore('yourScore', randomCard);
+            //         console.log(blackjackGame['yourScore']);
+            //         showCard(randomCard, '#your-box');
+            //         showYourScore(blackjackGame['yourScore']);
+            //     }
+        }
 
-        //         let yourImages = document.querySelector('#your-box').querySelectorAll('img');
-        //         let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
-        //         for (i = 0; i < yourImages.length; i++) {
-        //             yourImages[i].remove();
-        //         }
+        function randomCard() {
+            let randomIndex = Math.floor(Math.random() * 13);
+            let randomCard = blackjackGame['cards'][randomIndex];
+        }
 
-        //         for (i = 0; i < dealerImages.length; i++) {
-        //             dealerImages[i].remove();
-        //         }
-
-        //         blackjackGame['yourScore'] = 0;
-        //         blackjackGame['dealerScore'] = 0;
-
-        //         document.querySelector('#your-blackjack-score').textContent = 0;
-        //         document.querySelector('#dealer-blackjack-score').textContent = 0;
-
-        //         document.querySelector('#your-blackjack-score').style.color = '#ffffff';
-        //         document.querySelector('#dealer-blackjack-score').style.color = '#ffffff';
-
-        //         document.querySelector('#blackjack-result').textContent = "Let's play";
-        //         document.querySelector('#blackjack-result').style.color = 'black';
-
-        //         blackjackGame['turnsOver'] = false;
-        //     }
-        // }
-
-        // if (Number(document.querySelector(playerBoxId + ' span').textContent) <= 21) {
-        //     let cardImage = document.createElement('img');
-        //     cardImage.src = '/Users/danielbrown/Downloads/images' + card + '.png';
-        //     document.querySelector(playerBoxId).appendChild(cardImage);
-        //     hitSound.play();
-        // }
     }
+
+    //     if (blackjackGame['turnsOver'] === true) {
+
+    //         blackjackGame['isStand'] = false;
+
+    //         let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+    //         let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
+    //         for (i = 0; i < yourImages.length; i++) {
+    //             yourImages[i].remove();
+    //         }
+
+    //         for (i = 0; i < dealerImages.length; i++) {
+    //             dealerImages[i].remove();
+    //         }
+
+    //         blackjackGame['yourScore'] = 0;
+    //         blackjackGame['dealerScore'] = 0;
+
+    //         document.querySelector('#your-blackjack-score').textContent = 0;
+    //         document.querySelector('#dealer-blackjack-score').textContent = 0;
+
+    //         document.querySelector('#your-blackjack-score').style.color = '#ffffff';
+    //         document.querySelector('#dealer-blackjack-score').style.color = '#ffffff';
+
+    //         document.querySelector('#blackjack-result').textContent = "Let's play";
+    //         document.querySelector('#blackjack-result').style.color = 'black';
+
+    //         blackjackGame['turnsOver'] = false;
+    //     }
+    // }
+
+    // if (Number(document.querySelector(playerBoxId + ' span').textContent) <= 21) {
+    //     let cardImage = document.createElement('img');
+    //     cardImage.src = '/Users/danielbrown/Downloads/images' + card + '.png';
+    //     document.querySelector(playerBoxId).appendChild(cardImage);
+    //     hitSound.play();
+    // }
+}
 
 // let blackjackGame = {
 //     'yourScore': 0,
