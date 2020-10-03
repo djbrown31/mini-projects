@@ -250,7 +250,7 @@ function showScore(activePlayer) {
         document.querySelector('scoreSpan').textContent = "BUST!";
         document.querySelector('scoreSpan').style.color = 'red';
     } else {
-        document.querySelector('scoreSpan').textContent = score;
+        document.querySelector('scoreSpan').textContent = 'score';
     }
 }
 
