@@ -204,7 +204,7 @@ function blackjackHit() {
 
 function showCard(activePlayer) {
     let cardImage = document.createElement('img');
-    cardImage.src = 'mini_projects/static/images/Q.png';
+    cardImage.src = '/static/images/Q.png';
     document.querySelector(activePlayer['div']).appendChild(cardImage);
     hitSound.play();
 
