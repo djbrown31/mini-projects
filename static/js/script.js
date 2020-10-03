@@ -173,7 +173,7 @@ const hitSound = new Audio('static/sounds/swish.m4a');
 
 document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
 
-document.querySelector('#blackjack-stand-button').addEventListener('click', dealerLogic);
+// document.querySelector('#blackjack-stand-button').addEventListener('click', dealerLogic);
 
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
