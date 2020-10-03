@@ -190,18 +190,12 @@ document.querySelector('#blackjack-deal-button').addEventListener('click', black
 // }
 
 function blackjackHit() {
-    let card = randomCard;
+    let card = randomCard();
     console.log(card);
-    showYourScore(YOU);
     showCard(card, YOU);
-
-    //     if (blackjackGame['isStand'] === false) {
-    //         let randomCard = hit();
-    //         updateScore('yourScore', randomCard);
-    //         console.log(blackjackGame['yourScore']);
-    //         showCard(randomCard, '#your-box');
-    //         showYourScore(blackjackGame['yourScore']);
-    //     }
+    updateScore(card, YOU);
+    showScore(YOU);
+    console.log(YOU['score']);
 }
 
 function randomCard() {
@@ -210,10 +204,12 @@ function randomCard() {
 }
 
 function showCard(card, activePlayer) {
-    let cardImage = document.createElement('img');
-    cardImage.src = `static/images/${card}.png`;
-    document.querySelector(activePlayer['div']).appendChild(cardImage);
-    hitSound.play();
+    if (activePlayer['score'] <= 21) {
+        let cardImage = document.createElement('img');
+        cardImage.src = `static/images/${card}.png`;
+        document.querySelector(activePlayer['div']).appendChild(cardImage);
+        hitSound.play();
+    }
 }
 
 function blackjackDeal() {
@@ -229,75 +225,31 @@ function blackjackDeal() {
         dealerImages[i].remove();
     }
 
-    //     function blackjackHit() {
+    YOU['score'] = 0;
+    DEALER['score'] = 0;
 
-    //         //     if (blackjackGame['isStand'] === false) {
-    //         //         let randomCard = hit();
-    //         //         updateScore('yourScore', randomCard);
-    //         //         console.log(blackjackGame['yourScore']);
-    //         //         showCard(randomCard, '#your-box');
-    //         //         showYourScore(blackjackGame['yourScore']);
-    //         //     }
-    //     }
-
-    // }
-
-    //     if (blackjackGame['turnsOver'] === true) {
-
-    //         blackjackGame['isStand'] = false;
-
-    //         let yourImages = document.querySelector('#your-box').querySelectorAll('img');
-    //         let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
-    //         for (i = 0; i < yourImages.length; i++) {
-    //             yourImages[i].remove();
-    //         }
-
-    //         for (i = 0; i < dealerImages.length; i++) {
-    //             dealerImages[i].remove();
-    //         }
-
-    //         blackjackGame['yourScore'] = 0;
-    //         blackjackGame['dealerScore'] = 0;
-
-    //         document.querySelector('#your-blackjack-score').textContent = 0;
-    //         document.querySelector('#dealer-blackjack-score').textContent = 0;
-
-    //         document.querySelector('#your-blackjack-score').style.color = '#ffffff';
-    //         document.querySelector('#dealer-blackjack-score').style.color = '#ffffff';
-
-    //         document.querySelector('#blackjack-result').textContent = "Let's play";
-    //         document.querySelector('#blackjack-result').style.color = 'black';
-
-    //         blackjackGame['turnsOver'] = false;
-    //     }
-    // }
-
-    // if (Number(document.querySelector(playerBoxId + ' span').textContent) <= 21) {
-    //     let cardImage = document.createElement('img');
-    //     cardImage.src = '/Users/danielbrown/Downloads/images' + card + '.png';
-    //     document.querySelector(playerBoxId).appendChild(cardImage);
-    //     hitSound.play();
-    // }
+    document.querySelector('#your-blackjack-result').textContent = 0;
+    document.querySelector('#dealer-blackjack-result').textContent = 0;
 }
 
-function updateScore(playerScore, card) {
+function updateScore(card, activePlayer) {
     if (card === 'A') {
-        if (blackjackGame[playerScore] + blackjackGame['cardsMap'][card][1] <= 21) {
-            blackjackGame[playerScore] += blackjackGame['cardsMap'][card][1];
+        if (activePlayer['score'] + blackjackGame['cardsMap'][card][1] <= 21) {
+            activePlayer[playerScore] += blackjackGame['cardsMap'][card][1];
         } else {
-            blackjackGame[playerScore] += blackjackGame['cardsMap'][card][0];
+            activePlayer[playerScore] += blackjackGame['cardsMap'][card][0];
         }
     } else {
-        blackjackGame[playerScore] += blackjackGame['cardsMap'][card];
+        activePlayer[playerScore] += blackjackGame['cardsMap'][card];
     }
 }
 
-function showYourScore(score) {
-    if (blackjackGame['yourScore'] > 21) {
-        document.querySelector('#your-blackjack-score').textContent = "BUST!";
-        document.querySelector('#your-blackjack-score').style.color = 'red';
+function showScore(activePlayer) {
+    if (activePlayer['score'] > 21) {
+        document.querySelector('scoreSpan').textContent = "BUST!";
+        document.querySelector('scoreSpan').style.color = 'red';
     } else {
-        document.querySelector('#your-blackjack-score').textContent = score;
+        document.querySelector('scoreSpan').textContent = score;
     }
 }
 
