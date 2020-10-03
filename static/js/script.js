@@ -178,17 +178,6 @@ document.querySelector('#blackjack-stand-button').addEventListener('click', deal
 
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
-// function blackjackHit() {
-//     showCard(YOU);
-//     // if (blackjackGame['isStand'] === false) {
-//     //     let randomCard = hit();
-//     //     updateScore('yourScore', randomCard);
-//     //     console.log(blackjackGame['yourScore']);
-//     //     showCard(randomCard, '#your-box');
-//     //     showYourScore(blackjackGame['yourScore']);
-//     // }
-// }
-
 function blackjackHit() {
     let card = randomCard();
     console.log(card);
@@ -260,19 +249,32 @@ function dealerLogic() {
     showScore(DEALER);
 }
 
+function computeWinner() {
+    let winner;
+
+    if (YOU['score'] <= 21) {
+        if (YOU['score'] > DEALER['score'] || (DEALER['score'] > 21)) {
+            console.log('You won!');
+            winner = YOU;
+        } else if (YOU['score'] < DEALER['score']{
+            console.log('You Lost!');
+            winner = DEALER;
+        } else if (YOU['score'] === DEALER['score']) {
+            console.log('PUSH!')
+        }
+    } else if (YOU['score'] > 21 && DEALER['score'] <= 21) {
+        console.log('You lost!');
+        winner = DEALER;
+    } else if (YOU['score'] > 21 && DEALER['score'] > 21) {
+        console.log('PUSH!');
+        winner = DEALER;
+    }
+    return winner;
+}
+
 // const hitSound = new Audio('/Users/danielbrown/Downloads/sounds/swish.m4a');
 // const winSound = new Audio('/Users/danielbrown/Downloads/sounds/cash.mp3');
 // const lossSound = new Audio('/Users/danielbrown/Downloads/sounds/aww.mp3');
-
-// function blackjackHit() {
-//     if (blackjackGame['isStand'] === false) {
-//         let randomCard = hit();
-//         updateScore('yourScore', randomCard);
-//         console.log(blackjackGame['yourScore']);
-//         showCard(randomCard, '#your-box');
-//         showYourScore(blackjackGame['yourScore']);
-//     }
-// }
 
 
 
